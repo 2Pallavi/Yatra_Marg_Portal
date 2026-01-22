@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore</title>
+    <link rel="icon" href="C:\Users\sunil\Documents\Yatra setu Portal\nashik logo.jpg" type="png">
+    
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+     
+
+ <style>
+    body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 70px;
+    color: #2c3e50;
+}
+
+.subtitle {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-content h3 {
+    margin: 0;
+    color: #333;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 6px 0;
+}
+
+.info {
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.map-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 12px;
+    background: #4682B4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.map-btn:hover {
+    background: #315f86;
+}
+
+
+  </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="C:\Users\sunil\Documents\Yatra setu Portal\nashik logo.jpg" alt="Yatra Setu Logo">
+                <h1><b>Yatra Marg Portal</b></h1>
+            </div>
+            <button class="mobile-nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="Home.html">Home</a></li>
+                  
+                    <!--<li><a href="#transportation">Transport &nbsp;<i class="fa-solid fa-caret-down"></i>
+                        <div class="dropdown_menu">
+                            <ul>
+                                <li><a href="Taxi Services.html" class="destination-link">Taxi Services</a></li>
+                                
+                            </ul>
+                        </div>
+                    
+                    </li> -->
+                    
+
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#contact">Contact</a></li> 
+                    <!--<li>
+                        <a href="#Explore">Explore &nbsp;<i class="fa-solid fa-caret-down"></i></a>
+                        <div class="dropdown_menu">
+                            <ul>
+                                <li><a href="Login page.html" class="destination-link">Login</a></li>
+                                <li><a href="Adventure & Fun.html" class="destination-link">Adventure & Fun</a></li>
+                                <li><a href="Food & Restaurants.html" class="destination-link">Food & Restaurants</a></li>
+                                <li><a href="When to visit.html" class="destination-link">When to visit</a></li>
+                            </ul>
+                        </div>
+                    </li>-->
+                    
+
+                    <li class="transport-box">
+                        <select class="transport-select" onchange="if(this.value) window.location.href=this.value;">
+                            <option value="">Transport</option>
+                            <option value="Taxi Services.html" >Taxi services</option>
+                        </select>
+
+
+                    </li>
+                    
+                
+                 
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+   <div class="">   
+         <h1>Explore Places Around Nashik</h1>
+        <p class="subtitle">Weekend getaway spots near Nashik</p>
+
+        <div class="card-container" id="places"></div>
+        
+    </div>
+    
+
+    <script>
+        const places = [
+  {
+    name: "Anjaneri Hills",
+    desc: "Beautiful trekking spot near Nashik",
+    distance: "20 km from Nashik",
+    time: "July – February",
+    img: "https://source.unsplash.com/400x300/?mountain,hill",
+    map: "https://maps.google.com"
+  },
+  {
+    name: "Someshwar Waterfall",
+    desc: "Popular monsoon waterfall",
+    distance: "8 km from Nashik",
+    time: "July – September",
+    img: "https://source.unsplash.com/400x300/?waterfall,nature",
+    map: "https://maps.google.com"
+  },
+  {
+    name: "Dugarwadi Waterfall",
+    desc: "Hidden waterfall near Igatpuri",
+    distance: "30 km from Nashik",
+    time: "August – October",
+    img: "dugarwadi_waterfall.jpg",
+    map: "https://maps.google.com"
+  }
+  ,
+  {
+    name: "Someshwar Waterfall",
+    desc: "Popular monsoon waterfall",
+    distance: "8 km from Nashik",
+    time: "July – September",
+    img: "https://source.unsplash.com/400x300/?waterfall,nature",
+    map: "https://maps.google.com"
+  },
+  {
+    name: "Dugarwadi Waterfall",
+    desc: "Hidden waterfall near Igatpuri",
+    distance: "30 km from Nashik",
+    time: "August – October",
+    img: "dugarwadi_waterfall.jpg",
+    map: "https://maps.google.com"
+  }
+  ,
+  
+  
+];
+
+const container = document.getElementById("places");
+
+places.forEach(place => {
+  container.innerHTML += `
+    <div class="card">
+        <img src="${place.img}" alt="${place.name}">
+        <div class="card-content">
+            <h3>${place.name}</h3>
+            <p>${place.desc}</p>
+            <div class="info">📍 ${place.distance}</div>
+            <div class="info">🕒 ${place.time}</div>
+            <a class="map-btn" href="${place.map}" target="_blank">View on Map</a>
+        </div>
+    </div>
+  `;
+});
+
+    </script>
+
+    
+     <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Nashik Tourism</h3>
+                    <p>Discover the divine city of Nashik, known for its religious significance, vineyards, and natural beauty. Our guide helps you explore this cultural gem in Maharashtra, India.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        
+                        <a href="#"  class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#destinations">Tourist Spots</a></li>
+                        <li><a href="#transportation">Transport</a></li>
+                        <li><a href="#map">Map</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="trimbak.html">Trimbakeshwar Temple</a></li>
+                        <li><a href="panchvati.html">Panchavati</a></li>
+                        <li><a href="sula.html">Sula Vineyards</a></li>
+                        <li><a href="pandavleni.html">Pandavleni Caves</a></li>
+                        <li><a href="all-destinations.html">View All</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>PALLAVI CHAUDHARI</p>
+                    <p><i class="fas fa-phone"></i> +91-9309482281</p>
+                    <p><i class="fas fa-envelope"></i> pallavichau25@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Yatra Marg Portal All Rights Reserved.</p>
+            </div>
+        </div>
+        <!-- Scroll to top button -->
+         <button id="scrollTopBtn" onclick="scrollToTop()">^</button>
+    </footer>
+
+      
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

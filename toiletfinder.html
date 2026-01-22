@@ -1,0 +1,511 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="nashik logo.jpg" type="png">
+  <title>Find Public Toilets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="style2.css" />
+   <link rel="stylesheet" href="style.css" />
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+<nav class="navbar navbar-expand-lg fixed-top bg-white shadow">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="nashik logo.jpg" height="50" class="rounded-circle me-2">
+      <strong>Yatra Marg Portal</strong>
+    </a>
+ 
+  <button class="mobile-nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="Home.html">Home</a></li>                
+                    <li><a href="#contact">Contact</a></li> 
+                    
+                    
+            </nav>
+        </div>
+</nav>
+
+
+<!-- ================= MAP ================= -->
+<div class="container-fluid map-wrapper">
+  <div id="map"></div>
+</div>
+
+<!-- ================= SIDE PANEL ================= -
+ <button id="openFormBtn" class="">Open Form</button>-->
+ <button id="openFormBtn" class="open-btn">☰</button>
+
+<div id="sidePanel" class="shadow">
+    <button id="closeFormBtn" class="close-btn">&times;</button>
+  <h5 class="text-center mb-3">🚻 Toilet Services</h5>
+
+  <!-- Filter -->
+  <div class="mb-3">
+    <label class="form-check">
+      <input class="form-check-input" type="checkbox" checked onclick="filterMarkers('publictoilet')"> Public Toilet </label>
+    <label class="form-check">
+      <input class="form-check-input" type="checkbox" checked onclick="filterMarkers('mall')"> Shopping Mall</label>
+    <label class="form-check">
+      <input class="form-check-input" type="checkbox" checked onclick="filterMarkers('gasstation')"> Gas Station</label>
+     <label class="form-check">
+      <input class="form-check-input" type="checkbox" checked onclick="filterMarkers('pilgrim')">Pilgrim</label>
+  </div>
+
+  <!-- Emergency -->
+  <button id="emergencyBtn" class="btn btn-danger w-100 mb-3">
+    🚨 Emergency – Find Nearest Toilet
+  </button>
+
+  <!-- Add Toilet -->
+  <form id="toiletform" action="http://localhost:8181/Yatra_Marg_Portal/toiletfinder" method="post">
+    <input type="number" step="any" class="form-control mb-2" name="latitude" placeholder="Latitude"id="latInput"required>
+    <input type="number" step="any"class="form-control mb-2"  name="longitude" placeholder="Longitude"id="lngInput"required>
+
+    <select class="form-select mb-2" name="category" id="categoryInput" required>
+      <option value="publictoilet">Public Toilet</option>
+      <option value="mall">Mall</option>
+      <option value="pilgrim">Pilgrim</option>
+      <option value="gasstation">Gas Station</option>
+    </select>
+
+    <input class="form-control mb-2" name="title"placeholder="Title"id="titleInput"required>
+    <input class="form-control mb-2" name="description" placeholder="Description"id="descInput"required>
+
+    <input type="file" class="form-control mb-2" id="fileInput" accept="image/*">
+
+    <button type="submit" class="btn btn-success w-100" id="submitbtn"> Add Toilet</button>
+   <!-- <p id="successMsg" style="display:none; color:green;"><b>Thanks for helping Nashik!</b><br>Your submission will improve public hygiene during Kumbh 2026.</p>
+    <p id="successMsg" style="display:none; color:green;">Status:Under Verification⏳</p>-->
+    
+  <div class="modal fade"
+     id="successModal"
+     tabindex="-1"
+     data-bs-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Submission Successful!✅</h5>
+         
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        Thanks for helping Nashik!✅<br>
+        Your submission will improve public hygiene during Kumbh 2026.<br>
+        <b>Status: </b>Under Verification⏳
+         
+    
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!---->
+<div class="modal fade" id="nearestModal" tabindex="-1"data-bs-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+
+      <div class="modal-header bg-danger text-white">
+        <h6 class="modal-title">🚨 Nearest Toilet</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <p id="nearestText"></p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</form>
+</div>
+
+
+<!-- ================= FOOTER ================= -->
+<footer id="contact" class="bg-dark text-light mt-5 pt-4">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4">
+        <h5><b>Nashik Tourism></b></h5>
+        <p>Smart public services for Nashik Kumbh 2026.</p>
+      </div>
+
+      <div class="col-md-4">
+        <h5><b>Quick Links</b></h5>
+        <ul class="list-unstyled">
+          <li><a href="Home.html" class="text-light">Home</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-4">
+        <h5><b>Contact</b></h5>
+        <p><i class="fa fa-user"></i> Pallavi Chaudhari</p>
+        <p><i class="fa fa-phone"></i> 9309482281</p>
+        <p><i class="fa fa-envelope"></i> pallavichau25@gmail.com</p>
+      </div>
+
+    </div>
+    <hr>
+    <p class="text-center">© 2026 Yatra Marg Portal</p>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+
+<script>
+
+/*const form=document.getElementById('toiletform');
+const message=document.getElementById('successMsg');
+form.addEventListener('submit',function(event){
+  event.preventDefault();
+  message.style.display='block';
+  form.reset();
+  setTimeout(()=>{
+    message.style.display='none';
+  },3000);
+});
+*/
+document.getElementById("toiletform").addEventListener("submit", function (e) {
+  //e.preventDefault();
+  const modal = new bootstrap.Modal(document.getElementById("successModal"));
+  modal.show();
+    this.reset(); // form clear
+});
+
+
+
+let map, userMarker;
+const toilets = [
+  { name: "🚻Ramkund Public Toilet", lat: 19.9975, lng: 73.7898,type: "publictoilet" },
+  { name: "🚻SBM Toilet(Wadner Rd.near watertank,Mahatma Nagar)", lat: 19.9, lng: 73.7,type: "publictoilet" },
+  { name: "🚻petrolpump SBM Public Toilet", lat: 19.993875, lng: 73.751095,type: "publictoilet" },
+    { name: "🚻SBM Public Toilet", lat: 19.999585, lng: 73.794904,type: "publictoilet" },
+     { name: "🚻SBM Public Toilet(Malegaon Adityakunj Society,Panchvati)", lat: 20.011453, lng: 73.796581,type: "publictoilet" },
+   { name: "🚻SBM Public bathroom(Near Panchvati Karanjya)", lat: 20.002839, lng: 73.789926,type: "publictoilet" },
+    { name: "🚻SBM Public toilet(Panchvati Karanjya Rd ,Naikwadi Pura,Panchvati)", lat: 20.002839, lng: 73.789926,type: "publictoilet" },
+     { name: "🚻SBM Public toilet(Ganesh Wadi Rd Panchvati)", lat: 20.004764, lng: 73.794213,type: "publictoilet" },
+  { name: "🚻CBS Bus Stand Toilet", lat: 19.9896, lng: 73.7874 ,type: "publictoilet"},
+  { name: "🚻Ram Kund Public Toilet/SBM toilet", lat: 20.0068, lng: 73.7925, type:"publictoilet"},
+   { name: "🚻City Centre Mall Washroom(Clean mall washrooms (Top Floor))", lat: 19.9922, lng: 73.7658,type:"mall" },
+   //{ name: "Trimbakeshwar Pilgrim Toilet", lat: 19.9400, lng: 73.6000, type: "pilgrim" },
+  { name: "🚻Kalaram Temple Toilet", lat: 19.9980, lng: 73.7880, type: "pilgrim" },
+  { name: "🚻SBM Toilet", lat: 19.933539, lng: 73.532928, type: "pilgrim" },
+  { name: "🚻SBM Toilet sita gufa Rd(Panchvati)", lat: 20.006884, lng:73.796709, type: "publictoilet" },
+  { name: "🚻Public Toilet(Near Dwarka Powder)", lat: 19.994021, lng:73.796320, type: "publictoilet" },
+  { name: "🚻Sulabh Sauchalay(Near Kalaram Mandir)", lat: 20.006975, lng:73.796295, type: "publictoilet" },
+  { name: "🚻Toilet(Near indian oil petrol pump/Satpur Colony)", lat: 19.991103, lng:73.732253, type: "publictoilet" },
+  { name: "🚻Toilet( trimbak bus-stop)", lat: 19.934650, lng:73.531587, type: "publictoilet" },
+];
+
+
+function showCategory(category) {
+  markers.forEach(t => {
+    if(category === "all" || t.type === category) {
+      t.marker.setMap(map); // show
+    } else {
+      t.marker.setMap(null); // hide
+    }
+  });
+}
+
+
+const markers = [];
+
+window.initMap = function () {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 19.997453, lng: 73.789802 },
+    zoom: 13
+  });
+
+  toilets.forEach(t => {
+    const m = new google.maps.Marker({
+      position: { lat: t.lat, lng: t.lng },
+      map,
+      title: t.name
+    });
+    markers.push({ ...t, marker: m });
+  });
+};
+
+function getDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const toRad = x => x * Math.PI / 180;
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+  const a =
+    Math.sin(dLat/2)**2 +
+    Math.cos(toRad(lat1))*Math.cos(toRad(lat2))*
+    Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+document.getElementById("emergencyBtn").onclick = () => {
+  navigator.geolocation.getCurrentPosition(pos => {
+    const { latitude, longitude } = pos.coords;
+
+    if (userMarker) userMarker.setMap(null);
+    userMarker = new google.maps.Marker({
+      position: { lat: latitude, lng: longitude },
+      map,
+      icon: "https://maps.google.com/mapfiles/ms/icons/green-dot.png"
+    });
+
+    let nearest = null, min = Infinity;
+
+    markers.forEach(t => {
+      const d = getDistance(latitude, longitude, t.lat, t.lng);
+      if (d < min) {
+        min = d;
+        nearest = t;
+      }
+    });
+
+    markers.forEach(t =>
+      t.marker.setIcon("https://maps.google.com/mapfiles/ms/icons/blue-dot.png")
+    );
+
+    nearest.marker.setIcon(
+      "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
+    );
+    
+    //alert(
+     // `🚨 Nearest Toilet Found\n\n${nearest.name}\nDistance: ${(min/1000).toFixed(2)} km`
+   // );
+   
+   document.getElementById("emergencyBtn").onclick = () => {
+  navigator.geolocation.getCurrentPosition(pos => {
+    const { latitude, longitude } = pos.coords;
+
+    let nearest = null, min = Infinity;
+
+    markers.forEach(t => {
+      const d = getDistance(latitude, longitude, t.lat, t.lng);
+      if (d < min) {
+        min = d;
+        nearest = t;
+      }
+    });
+
+    // 🔥 Modal text set
+    document.getElementById("nearestText").innerHTML = `
+      <b>${nearest.name}</b><br>
+      Distance: ${(min / 1000).toFixed(2)} km
+    `;
+
+    // 🔥 Show modal
+    const modal = new bootstrap.Modal(
+      document.getElementById("nearestModal")
+    );
+    modal.show();
+  },
+  () => alert("📍 Location permission denied")
+  );
+};
+
+
+
+
+  
+  });
+};
+
+
+
+/*
+let map;
+let userMarker = null;
+const markers = [];
+
+/* 🔹 Sample Nashik toilet data 
+const toilets = [
+  { name: "Ramkund Public Toilet", lat: 20.0066, lng: 73.7926 },
+  { name: "Panchavati Toilet", lat: 20.0079, lng: 73.7898 },
+  { name: "CBS Public Toilet", lat: 19.9974, lng: 73.7890 }
+];
+
+/* 🔹 Initialize Map 
+window.initMap = function () {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 20.005, lng: 73.79 },
+    zoom: 14
+  });
+
+  toilets.forEach(t => {
+    const marker = new google.maps.Marker({
+      position: { lat: t.lat, lng: t.lng },
+      map: map,
+      title: t.name,
+      icon: "https://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+    });
+
+    markers.push({ ...t, marker });
+  });
+};
+
+/* 🔹 Haversine Distance (meters) 
+function getDistance(lat1, lon1, lat2, lon2) {
+  const R = 6371e3;
+  const toRad = x => x * Math.PI / 180;
+
+  const dLat = toRad(lat2 - lat1);
+  const dLon = toRad(lon2 - lon1);
+
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) *
+    Math.cos(toRad(lat2)) *
+    Math.sin(dLon / 2) ** 2;
+
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+/* 🔹 Button Click 
+document.getElementById("emergencyBtn").onclick = () => {
+
+  if (!navigator.geolocation) {
+    alert("Geolocation not supported");
+    return;
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    pos => {
+      const { latitude, longitude } = pos.coords;
+
+      /* User marker 
+      if (userMarker) userMarker.setMap(null);
+      userMarker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map,
+        icon: "https://maps.google.com/mapfiles/ms/icons/green-dot.png",
+        title: "Your Location"
+      });
+
+      if (markers.length === 0) {
+        alert("No toilet data available");
+        return;
+      }
+
+      /* Find nearest toilet (straight-line) 
+      let nearest = null;
+      let min = Infinity;
+
+      markers.forEach(t => {
+        const d = getDistance(latitude, longitude, t.lat, t.lng);
+        if (d < min) {
+          min = d;
+          nearest = t;
+        }
+      });
+
+      /* Reset icons 
+      markers.forEach(t =>
+        t.marker.setIcon("https://maps.google.com/mapfiles/ms/icons/blue-dot.png")
+      );
+
+      nearest.marker.setIcon(
+        "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
+      );
+
+      /* Google walking distance + time 
+      const service = new google.maps.DistanceMatrixService();
+
+      service.getDistanceMatrix({
+        origins: [{ lat: latitude, lng: longitude }],
+        destinations: [{ lat: nearest.lat, lng: nearest.lng }],
+        travelMode: google.maps.TravelMode.WALKING
+      }, (response, status) => {
+
+        if (status === "OK") {
+          const element = response.rows[0].elements[0];
+
+          alert(
+            `🚨 Nearest Toilet Found\n\n` +
+            `🚻 ${nearest.name}\n` +
+            `📏 Straight-line: ${(min / 1000).toFixed(2)} km\n` +
+            `🚶 Walking distance: ${element.distance.text}\n` +
+            `⏱️ Walking time: ${element.duration.text}`
+          );
+        } else {
+          alert("Unable to calculate walking distance");
+        }
+      });
+      alert(
+      `🚨 Nearest Toilet Found\n\n${nearest.name}\nDistance: ${(min/1000).toFixed(2)} km`
+    );
+    },
+    () => alert("📍 Location permission denied")
+  );
+};
+   
+*/
+
+
+
+
+
+//form open close
+const openBtn = document.getElementById("openFormBtn");
+const closeBtn = document.getElementById("closeFormBtn");
+const sideForm = document.getElementById("sidePanel");
+
+openBtn.addEventListener("click", () => {
+  sideForm.classList.add("open");
+});
+
+closeBtn.addEventListener("click", () => {
+  sideForm.classList.remove("open");
+
+
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCthMkZ6Pcev0H57sbOQ1tGMtutPOjCa-Y&libraries=places&callback=initMap" defer></script>
+
+
+<script src="script.js"></script>
+<!--<script src="main.js" ></script>-->
+
+</body>
+</html>
+
+
+

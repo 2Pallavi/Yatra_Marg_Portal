@@ -1,0 +1,528 @@
+.route-search {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+  
+}
+
+#route-search input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius:20px;
+  
+   
+    border: none;
+    outline: none;
+    
+  
+}
+
+.route-card {
+  /*margin-top: 15px;
+  
+  margin-left: 0;
+  padding: 10px;
+  border-radius: 5px;
+  background: #ffffff;
+  text-align: left;
+  align-items: center;
+
+  border-radius: 14px;
+  padding: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  scroll-snap-align: start;
+
+  
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  
+  /*color: black;
+
+ margin: 20px auto; 
+ width:400px;*/
+ flex: 0 0 45%;        /* ✅ Desktop → 2 cards */
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  scroll-snap-align: start;
+  color: black;
+  
+
+}
+
+.route-card ul {
+  max-height: 80px;         /* fixed height */
+  overflow-y: auto;          /* vertical scroll if too long */
+  padding-left: 18px;
+  margin: 0;
+  border: 1px solid #ddd;    /* optional border */
+  border-radius: 8px;
+  background: #fff;
+}
+
+.route-card li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+  
+}
+
+/* Optional: scrollbar styling */
+.route-card ul::-webkit-scrollbar {
+  width: 6px;
+  
+   
+
+  
+}
+
+.route-card ul::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 3px;
+}
+
+.helpline-box {
+  list-style: none;
+}
+
+.helpline-select {
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #e53935;
+  background: #fff5f5;
+  color: #b71c1c;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hover effect */
+.helpline-select:hover {
+  background: #ffecec;
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  .helpline-select {
+    width:100%;
+    margin-top: 8px;
+  }
+}
+
+.helpline-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.helpline-select,
+.hospital-btn {
+  padding: 12px;
+  width: 100%;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+}
+
+.hospital-btn {
+  background: #e53935;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+
+
+.pdf-dropdown {
+  margin: 20px auto;
+  max-width: 300px;
+  text-align: center;
+  display: inline-block;
+  
+ 
+}
+
+.pdf-dropdown select {
+  width: 70%;
+  padding: 12px;
+  margin-top: 8px;
+  font-size: 15px;
+  border-radius: 8px;
+}
+.select{
+ border-radius:20px;;
+
+}
+#busPdf{
+  border-radius:20px;
+
+  color:rgb(102, 100, 100);
+   
+    border: none;
+    outline: none;
+    
+    
+
+}
+
+
+.app {
+  display: inline-block;
+  margin-top: 6px;
+  text-decoration: none;
+  color: rgb(255, 249, 249);
+  background: #017cff;
+  padding: 6px 5px;
+  border-radius: 5px;
+  font-size: 12px;
+  
+}
+
+.app :hover {
+  background: #00458f;
+}
+
+/* Taxi and cab services styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+}
+
+.cab-section {
+  padding: 15px;
+}
+
+.cab-slider {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px;
+}
+
+.cab-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.cab-card {
+  min-width: 200px;
+  background: #eeeaea;
+  border-radius: 50px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+
+}
+/*
+
+.cab-card h3 {
+  margin: 0 0 8px;
+}
+
+.cab-card p {
+  font-size: 14px;
+  margin: 4px 0;
+}
+  */
+
+.cab-btn {
+  /*display: block;
+  margin-top: 12px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;*/
+
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  padding: 9px;
+  border-radius: 14px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  width: 200px;
+  
+
+}
+.cab-btn:hover{
+  opacity: 10;
+   transform: scale(1.05);
+  filter: brightness(1.1);
+  
+}
+
+/* Button Colors 
+.ola .cab-btn { background:#1a73e8; }
+.uber .cab-btn { background:#1a73e8; }
+.rapido .cab-btn { background:#1a73e8; color:#fff; }
+.local .cab-btn { background:#007bff; }
+.call { background:#dc3545; }
+.local .cab-btn { background:#1a73e8; }
+.local #call { background:#e21e31; }*/
+
+
+
+.cab-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+}
+
+
+.cab-card h3 {
+  margin: 8px 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+ 
+}
+
+.cab-card p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #555;
+}
+.ola .cab-btn {
+  background: linear-gradient(135deg, #00b894, #0984e3);
+}
+
+.uber .cab-btn {
+  background: linear-gradient(135deg, #00b894, #0984e3);    /*135deg, #000000, #434343*/
+}
+
+.rapido .cab-btn {
+  background: linear-gradient(135deg, #00b894, #0984e3);
+  color: #fffafa;
+}
+.local .cab-btn{
+   background: linear-gradient(135deg, #00b894, #0984e3);
+  color: #fffafa;
+}
+.local #call { background:#e21e31; }
+
+
+
+
+.stops-list {
+  /*max-height: 120px;      // 🔥 fixed height 
+  overflow-y: auto;
+  margin-top: 8px;
+  padding-left: 18px;*/
+
+   max-height: 90px;
+  overflow-y: auto;
+  margin-top: 5px;
+  padding-left: 2px;
+}
+
+.stops-list li {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.stops-list li.highlight {
+  background: #e4cf8a;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.route-slider {
+  /*display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;*/
+
+    display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 0;
+}
+
+.route-slider::-webkit-scrollbar {
+  display: none; /* clean look */
+}
+
+/*.route-card {
+  min-width: 280px;
+  
+}*/
+.route-slider::after {
+  content: "⇆ Swipe";
+  font-size: 12px;
+  color: #bbb2b2;
+  position: absolute;
+  right: 10px;
+  top: -18px; 
+
+  
+  
+
+
+}
+
+
+/*cards slider stops*/
+
+/* ===== ROUTE SLIDER WRAPPER ===== */
+.route-wrapper {
+  /*position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 15px auto;
+  overflow: hidden;*/
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+/* ===== SLIDER ===== 
+.route-slider {
+ display: flex;
+  gap: 12px;
+  overflow-x: auto;                 /* 🔥 mobile swipe 
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 8px 0;
+
+ 
+}*/
+
+.route-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== CARD ===== 
+.route-card {
+  /*flex: 0 0 20%;                     /* 🔥 DESKTOP = 2 cards 
+ 
+
+  
+}*/
+
+/* ===== ARROWS ===== */
+.slide-btn {
+  /*position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;*/
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #c8d8f6;
+  color: #050505;
+  border: none;
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.slide-btn.left { left: 6px; }
+.slide-btn.right { right: 6px; }
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 600px) {
+  .route-card {
+    flex: 0 0 100%;          /* 🔥 mobile = 1 big card */
+  }
+
+  .slide-btn {
+    display: none;          /* 🔥 mobile = swipe only */
+  }
+}
+
+
+
+
+
+#searchInput {
+  width: 100%;
+  max-width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+#searchInput:focus {
+  border: 2px solid #007bff;
+  outline: none;
+}
+#result {
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+@media (max-width: 600px) {
+
+  body {
+    padding-top: 70px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .route-card {
+    width: 100%;
+    margin: 12px 0;
+  }
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
+}
+
+/* 🔥 THIS FIXES OVERLAP */
+body {
+  padding-top: 10px;   /* header height approx */
+}
+.hero {
+  min-height: 100vh;          /* 🔥 not fixed height */
+  padding: 30px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+
