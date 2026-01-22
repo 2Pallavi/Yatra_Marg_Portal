@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="icon" href="nashik logo.jpg" type="png">
+    <title>Transportation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="taxi services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+     
+
+   
+</head>
+<body>
+     <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="nashik logo.jpg" alt="Yatra Marg Logo">
+                <h1><b>Yatra Marg Portal</b></h1>
+            </div>
+            <button class="mobile-nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="Home.html">Home</a></li>
+                    
+                    <li><a href="#map">Map</a></li>
+                   
+                    <li><a href="#contact">Contact</a></li>
+                     
+                    <li class="helpline-box">
+                      <select class="helpline-select"onchange="if(this.value) window.location.href='tel:'+this.value;">
+                            <option value="">📞 Call Helpline</option>
+                            <option value="1091">CITILINC helpline – 8530057222</option>
+                            <option value="1091">CITILINC helpline – 8530067222</option>
+                            <option value="100">🚓 Police – 100</option>
+                            <option value="108">🚑 Ambulance – 108</option>
+                            <option value="101">🔥 Fire – 101</option>
+                            <option value="1091">👩 Women – 1091</option>
+                            
+                             <option value="nearest-hospital">🏥 Call Nearest Hospital</option>
+                            
+
+                      </select>
+                      
+                    </li>
+                    <li> <a href="https://play.google.com/store/apps/details?id=com.nmpml" class="app" target="_blank">📱Open Bus App</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="citilink" id="route-search">
+      <section class="hero" style="background-image: url('https://media.assettype.com/freepressjournal/2024-03/fb44a324-a677-4214-a8ea-314af99c0d95/esakal_2024_03_76759b4a_bc35_4f8f_a7e8_0e9cd31d0185____1_.avif');background-size: cover; background-position: center;">
+        
+        <div class="hero-content" >
+            
+
+            <h2 class="transition">CITILINC Nashik</h2>
+           <p>Search bus routes easily by route number or area</p>
+           <p>To find nearby stops of CITILINK Download APP</p> 
+           
+           <input type="text" id="searchInput" placeholder="Enter route number/area (e.g. 101/cbs)"onkeyup="searchRoute()">
+           
+  <div class="pdf-dropdown">
+            
+  <label for="busPdf"style="text-shadow:1px 1px 3px rgba(0,0,0,0.5)" ><b> Bus Timing पाहण्यासाठी PDF वापरा:</b></label>
+
+  <select id="busPdf" onchange="openPDF(this.value)">
+    <option value="" class="select">Access PDF -></option>
+    <option value="CITILINC-DepotTimeTable  english.pdf">📄 Bus Timing – English</option>
+    <option value="Marathi CITILINC BUS SCHEDULE .pdf">📄 बस वेळापत्रक – मराठी</option>
+  </select>
+
+  
+</div>
+
+<div id="result">
+
+</div>
+</section>
+
+    <section id="around-nashik" class="destinations">
+        <div class="container" id="">
+            <h2 class="section-title"> Cab & Taxi Services in Nashik</h2>  
+
+            <section class="cab-section">
+  
+
+  <div class="cab-slider">
+
+
+    <div class="cab-card ola">
+      <img src="ola logo.jpeg" alt="ola img" class="destination-img">
+                        
+      <h3><b> Ola Cabs</b></h3>
+      <p>₹12 – ₹17 / km </p>
+      
+
+      <a href="https://www.olacabs.com" class="cab-btn">Open </a>
+    </div>
+
+    <div class="cab-card uber">
+      
+       <img src="uber logo.png" alt="Uber img" class="destination-img">
+     
+      <h3> Uber</h3>
+      <p>₹7 – ₹14 / km</p>
+      
+      <a href="https://www.uber.com/in/en/r/cities/taxi/nashik-maharastra-in/" class="cab-btn">Open </a>
+    </div>
+
+    <div class="cab-card rapido">
+      <img src="MakeMyTrip-Logo-.jpg" alt="make-my-trip img" class="destination-img">
+      <h3> MakeMyTrip Cabs</h3>
+      <p>₹13 – ₹48.1 / km</p>
+     
+      <a href="https://www.makemytrip.com/cabs/" class="cab-btn">Open</a>
+    </div>
+
+    <div class="cab-card local">
+      <img src="sahyadri-cab.avif" alt="sahyadri-cab img" class="destination-img">
+      <h3> Sahyadri Cabs</h3>
+      <p>₹11 per /km</p>
+      <p></p>  
+      <a href="https://www.sahyadricabs.in/" class="cab-btn">Open </a>
+      <a href="tel:+919930007255" class="cab-btn call" id="call">Call Now</a>
+    </div>
+
+    <div class="cab-card local">
+      <img src="choice cab.jpeg" alt="choice cabs img" class="destination-img">
+      <h3> Choice Cabs</h3>
+      <p>₹13 per /km</p>
+      <p></p>
+      <a href="https://www.choicecabs.in/" class="cab-btn">Open</a>
+      <a href="tel:+918888022201" class="cab-btn call" id="call">Call Now</a>
+    </div>
+    <div class="cab-card local">
+       <img src="gogreen.png" alt="gogreen cabs img" class="destination-img">
+      <h3> GoGreen cabs</h3>
+      <p>₹11 per km (may vary by ride type)</p>
+      <a href="https://www.gogreencabs.com/" class="cab-btn">Open </a>
+      <a href="tel:+91-88888 13717" class="cab-btn call" id="call">Call Now</a>
+    </div>
+
+    <div class="cab-card local">
+      <img src="gocabishjpeg.jpeg" alt="gocabish cabs img" class="destination-img">
+      <h3> GoCabish</h3>
+      <p>₹9-10 per /km</p>
+      <p></p>
+      <a href="https://www.GoCabish.com/" class="cab-btn">Open GoCabish</a>
+      <a href="tel:+918989282833" class="cab-btn call" id="call">Call Now</a>
+    </div>
+    <div class="cab-card local">
+       <img src="home cab.jpeg" alt="home cab service img" class="destination-img">
+      <h3>Home Cab Service</h3>
+      <p>₹12 per /km</p>
+      <p></p>
+      <a href="https://www.homecabservice.com/" class="cab-btn">Open </a>
+      <a href="tel:+918180838823" class="cab-btn call" id="call">Call Now</a>
+    </div>
+    <div class="cab-card local">
+       <img src="budget cab.png" alt="budget cabs img" class="destination-img">
+      <h3>Budget Cab Service</h3>
+      <p>Contact Directly To Know</p>
+      <a href="https://www.budget-cab.com/" class="cab-btn">Open </a>
+      <a href="tel:+91 9860689292" class="cab-btn call" id="call">Call Now</a>
+    </div>
+    <div class="cab-card local">
+       <img src="sai tours and travels logo1.jpg" alt="sai tours & travels img" class="destination-img">
+      <h3> Sai Tours &Travels</h3>
+      <p>Contact To Know prices</p>
+      <a href="https://saitoursntravel.com/" class="cab-btn">Open </a>
+      <a href="tel:+91-7020554810" class="cab-btn call" id="call">Call Now</a>
+    </div>
+    
+
+    
+
+  </div>
+</section>
+
+  </div>
+
+</section>
+
+ </div>
+
+
+   
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Nashik Tourism</h3>
+                    <p>Smart public services for Nashik Kumbh 2026.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                        
+                        <a href="#"  class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fa-brands fa-square-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#destinations">Tourist Spots</a></li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-map-marker-alt"></i>PALLAVI CHAUDHARI</p>
+                    <p><i class="fas fa-phone"></i> +91-9309482281</p>
+                    <p><i class="fas fa-envelope"></i> pallavichau25@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Yatra Marg Portal All Rights Reserved.</p>
+            </div>
+        </div>
+
+          <!-- Chat toggle button -->
+  <div class="chat-toggle" id="chatToggle">
+    
+    <img src="nashik logo.jpg" alt="Nashik Tourism Bot">
+
+  </div>
+
+  <!-- Chat container -->
+  <div class="chat-container" id="chatContainer">
+    <div class="chat-header">
+      <img src="nashik logo.jpg" alt="Nashik Tourism Bot">
+      <div class="chat-title">Nashik Tourism Assistant</div>
+      <div class="language-selector">
+        <select id="languageSelector">
+          <option value="en">English</option>
+          <option value="hi">हिंदी</option>
+        </select>
+      </div>
+      <div class="chat-controls">
+        <button id="minimizeChat">−</button>
+      </div>
+    </div>
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Ask about Nashik tourism...">
+      <button id="sendMessage">➤</button>
+    </div>
+  </div>
+
+  <!-- Nashik Tourist Review Widget - Start -->
+<div class="nashik-review-widget" id="nashikReviewWidget">
+    <!-- Collapsible Logo/Button -->
+    <div class="review-widget-trigger" id="reviewWidgetTrigger">
+      <div class="trigger-icon">💬</div>
+      <span>Reviews</span>
+    </div>
+    
+    <!-- Expandable Review Panel -->
+    <div class="review-widget-panel" id="reviewWidgetPanel">
+      <div class="panel-header">
+        <h3>Nashik Tourist Reviews</h3>
+        <button class="close-button" id="closeReviewPanel">×</button>
+      </div>
+      
+      <div class="panel-tabs">
+        <button class="panel-tab active" data-tab="read">Read Reviews</button>
+        <button class="panel-tab" data-tab="write">Add Your Review</button>
+      </div>
+      
+      <!-- Read Reviews Tab -->
+      <div class="panel-content active" id="readReviewsTab">
+        <div class="location-filter">
+          <select id="reviewLocationFilter">
+            <option value="all">All Nashik Locations</option>
+            <option value="Sula Vineyards">Sula Vineyards</option>
+            <option value="Trimbakeshwar Temple">Trimbakeshwar Temple</option>
+            <option value="Pandavleni Caves">Pandavleni Caves</option>
+            <option value="Someshwar Waterfall">Someshwar Waterfall</option>
+            <option value="Coin Museum">Coin Museum</option>
+            <option value="Saptashrungi Gad">Saptashrungi Gad</option>
+          </select>
+        </div>
+        
+        <div class="reviews-container" id="reviewsList">
+          <!-- Reviews will be loaded here -->
+          <div class="empty-reviews-message">
+            <p>No reviews yet for this location.</p>
+            <button class="write-review-btn" id="writeFirstReview">Be the first to review!</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Write Review Tab -->
+      <div class="panel-content" id="writeReviewTab">
+        <form id="reviewForm">
+          <div class="form-group">
+            <label for="reviewLocation">Location:</label>
+            <select id="reviewLocation" required>
+              <option value="">Select location in Nashik</option>
+              <option value="Sula Vineyards">Sula Vineyards</option>
+              <option value="Trimbakeshwar Temple">Trimbakeshwar Temple</option>
+              <option value="Pandavleni Caves">Pandavleni Caves</option>
+              <option value="Someshwar Waterfall">Someshwar Waterfall</option>
+              <option value="Coin Museum">Coin Museum</option>
+              <option value="Saptashrungi Gad">Saptashrungi Gad</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label>Your Rating:</label>
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5" required>
+              <label for="star5">★</label>
+              <input type="radio" id="star4" name="rating" value="4">
+              <label for="star4">★</label>
+              <input type="radio" id="star3" name="rating" value="3">
+              <label for="star3">★</label>
+              <input type="radio" id="star2" name="rating" value="2">
+              <label for="star2">★</label>
+              <input type="radio" id="star1" name="rating" value="1">
+              <label for="star1">★</label>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="reviewTitle" placeholder="Title of your review" required>
+          </div>
+          
+          <div class="form-group">
+            <textarea id="reviewText" placeholder="Share your experience in Nashik..." required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <input type="text" id="reviewerName" placeholder="Your name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="visitDate">Date of visit:</label>
+            <input type="date" id="visitDate" required>
+          </div>
+          
+          <button type="submit" class="submit-review-btn">Submit Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- Scroll to top button -->
+<button id="scrollTopBtn" onclick="scrollToTop()">^</button>
+
+    </footer>
+
+ <script src="script.js"></script> 
+ <script src="taxi services.js"></script>
+ 
+
+    
+</body>
+</html>
